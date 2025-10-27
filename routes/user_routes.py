@@ -13,7 +13,7 @@ client = MongoClient(os.getenv("MONGO_URI"))
 db = client["haas_db"]
 users = db["users"]
 
-# Sign-up Route
+
 @user_bp.route("/register", methods=["POST"])
 def register():
     data = request.get_json()
@@ -23,7 +23,7 @@ def register():
     users.insert_one({"username": username, "password": hashed})
     return jsonify({"message": "User created successfully"}), 201
 
-# Login Route
+
 @user_bp.route("/login", methods=["POST"])
 def login():
     data = request.get_json()

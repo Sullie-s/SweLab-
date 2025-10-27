@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, reqeust
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 from routes.user_routes import user_bp
 from routes.project_routes import project_bp

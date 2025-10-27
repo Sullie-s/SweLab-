@@ -20,7 +20,6 @@ def checkout_resource():
 
     hardware.update_one({"resource_id": resource_id}, 
                         {"$set": {"status": "checked-out", "project_id": project_id}})
-    
     return jsonify({"message": "Resource checked out sucessfully"}), 200
 
 
@@ -31,5 +30,4 @@ def checkin_resource():
 
     hardware.update_one({"resource_id": resource_id}, 
                         {"$set" : {"status": "checked-in", "project_id": None}})
-    
     return jsonify({"message": "Resource checked in sucessfully"}), 200

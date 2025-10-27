@@ -32,5 +32,3 @@ def get_projects():
     for proj in all_projects: 
         proj["project_id"] = str(proj["project_id"])
     return jsonify(all_projects)
-
-
