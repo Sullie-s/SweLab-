@@ -9,7 +9,7 @@ CORS(app)
 
 
 app.register_blueprint(user_bp, url_prefix = "/api/users")
-app.register_blueprint(project_bp, user_prefix = "/api/projects")
+app.register_blueprint(project_bp, url_prefix = "/api/projects")
 app.register_blueprint(hardware_bp, url_prefix = "/api/hardware")
 
 if __name__ == "__main__":

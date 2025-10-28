@@ -14,6 +14,10 @@ db = client["haas_db"]
 users = db["users"]
 
 
+@user_bp.route("/test", methods=["POST"])
+def test(): 
+    return jsonify({"message": "the intial testing works"})
+
 @user_bp.route("/register", methods=["POST"])
 def register():
     data = request.get_json()

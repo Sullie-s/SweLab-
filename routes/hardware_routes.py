@@ -12,6 +12,10 @@ db = client["haas_db"] #subject to change
 hardware = db["hardware"]
 
 
+@hardware_bp.route("/test", methods=["POST"])
+def test(): 
+    return jsonify({"message": "the intial testing works"})
+
 @hardware_bp.route("/checkout", methods=["POST"])
 def checkout_resource():
     data = request.get_json()
