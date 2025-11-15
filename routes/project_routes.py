@@ -7,7 +7,9 @@ load_dotenv()
 
 project_bp = Blueprint('project', __name__)
 
-client = MongoClient(os.getenv("MONGO_URI")) 
+# Set up MongoDB connection with SSL fix for Windows
+mongo_uri = os.getenv("MONGO_URI")
+client = MongoClient(mongo_uri, tlsAllowInvalidCertificates=True)
 db = client["haas_db"]
 projects = db["project"]
 
@@ -31,7 +33,10 @@ def create_project():
 
 @project_bp.route("/list", methods = ["GET"])
 def get_projects():
+    from bson import ObjectId
     all_projects = list(projects.find())
     for proj in all_projects: 
+        # Convert ObjectId to string for JSON serialization
+        proj["_id"] = str(proj["_id"])
         proj["project_id"] = str(proj["project_id"])
     return jsonify(all_projects)

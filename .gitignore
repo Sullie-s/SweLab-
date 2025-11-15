@@ -1,4 +1,10 @@
-# Created by venv; see https://docs.python.org/3/library/venv.html
-venv
-.venv
 .env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+*.log
+.DS_Store
