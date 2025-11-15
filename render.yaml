@@ -2,6 +2,7 @@ services:
   - type: web
     name: haas-backend
     env: python
+    rootDir: SweLab-
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn haas_backend.app:app
     envVars:
