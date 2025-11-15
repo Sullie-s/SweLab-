@@ -8,3 +8,9 @@ venv/
 env/
 *.log
 .DS_Store
+frontend/node_modules/
+frontend/dist/
+.env
+__pycache__/
+*.pyc
+venv/
